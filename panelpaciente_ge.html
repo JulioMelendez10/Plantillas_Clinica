@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioCare Dashboard</title>
+
+    <link rel="stylesheet" href="style/stylepaciente_panel.css">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- =========================
+         SIDEBAR (MENÚ LATERAL)
+         ========================= -->
+    <aside class="sidebar">
+
+        <!-- LOGO (ESTÁTICO) -->
+        <div class="logo">
+            <img src="img/logo.png">
+            <div>
+                <h1>BioCare</h1>
+                <p>Portal del Paciente</p>
+            </div>
+        </div>
+
+        <!-- =========================
+             MENÚ PRINCIPAL (NAVEGACIÓN)
+             ========================= -->
+        <nav class="menu">
+            <a class="active">
+                <i class="fa-solid fa-house"></i>
+                <span>Panel</span>
+            </a>
+
+            <a>
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Citas</span>
+            </a>
+
+            <a>
+                <i class="fa-solid fa-file-medical"></i>
+                <span>Historial</span>
+            </a>
+        </nav>
+
+        <!-- =========================
+             USUARIO (DINÁMICO BACKEND)
+             ESTE ES EL QUE TAMBIÉN DEBE FUNCIONAR EN RESPONSIVE
+             ========================= -->
+        <div class="user">
+            <!-- Icon user -->
+            
+                <i class="fa-solid fa-user user-icon"></i>
+            
+            <div>
+                <!-- NOMBRE DINÁMICO -->
+                <p><!-- PHP: echo $usuario['nombre']; --> Juan Pérez</p>
+
+                <!-- ROL DINÁMICO -->
+                <span><!-- PHP: echo $usuario['rol']; --> Paciente</span>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- =========================
+         CONTENIDO PRINCIPAL
+         ========================= -->
+    <main class="main">
+
+        <!-- HEADER (DINÁMICO) -->
+        <header class="header">
+            <h2>
+                Bienvenido, 
+                <!-- PHP: echo $usuario['nombre']; -->
+                Juan 👋
+            </h2>
+            <p>Consulta tu información médica y citas.</p>
+        </header>
+
+        <div class="grid">
+
+            <!-- =========================
+                 CITAS (DINÁMICO)
+                 ========================= -->
+            <div class="card citas">
+                <div class="card-header">
+                    <h3><i class="fa-solid fa-calendar-days"></i> Próximas Citas</h3>
+                    <button>Ver todo</button>
+                </div>
+
+                <!-- LOOP BACKEND -->
+                <div class="cita">
+                    <div class="fecha">
+                        <span>OCT</span>
+                        <h2>24</h2>
+                    </div>
+                    <div class="info">
+                        <h4><!-- PHP: doctor --> Dr. López</h4>
+                        <p><!-- PHP: especialidad + hora --> Cardiología • 10:30 AM</p>
+                    </div>
+                </div>
+                <!-- LOOP BACKEND -->
+                <div class="cita">
+                    <div class="fecha">
+                        <span>OCT</span>
+                        <h2>24</h2>
+                    </div>
+                    <div class="info">
+                        <h4><!-- PHP: doctor --> Dr. López</h4>
+                        <p><!-- PHP: especialidad + hora --> Cardiología • 10:30 AM</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- =========================
+                 HORARIOS (ESTÁTICO)
+                 ========================= -->
+            <div class="card horarios">
+                <h3><i class="fa-solid fa-clock"></i> Horarios de Atención</h3>
+                <p>Lunes a Viernes: 8:00 - 20:00</p>
+                <p>Sábado: 9:00 - 14:00</p>
+                <p class="cerrado">Domingo: Cerrado</p>
+            </div>
+
+            <!-- =========================
+                 ESPECIALIDADES (ESTÁTICO)
+                 ========================= -->
+            <div class="card especialidades">
+                <h3><i class="fa-solid fa-stethoscope"></i> Especialidades</h3>
+
+                <div class="esp-grid">
+                    <div><i class="fa-solid fa-heart-pulse"></i> Cardiología</div>
+                    <div><i class="fa-solid fa-child"></i> Pediatría</div>
+                    <div><i class="fa-solid fa-brain"></i> Neurología</div>
+                    <div><i class="fa-solid fa-user-doctor"></i> Ginecología</div>
+                    <div><i class="fa-solid fa-allergies"></i> Dermatología</div>
+                    <div><i class="fa-solid fa-utensils"></i> Nutrición</div>
+                </div>
+            </div>
+
+            <!-- =========================
+                 HISTORIAL (DINÁMICO)
+                 ========================= -->
+            <div class="card historial">
+                <div class="card-header">
+                    <h3><i class="fa-solid fa-notes-medical"></i> Historial</h3>
+                    <button>Ver todo</button>
+                </div>
+
+                <!-- ENCABEZADO -->
+                <div class="historial-head">
+                    <span>Tipo</span>
+                    <span>Resultado</span>
+                    <span>Fecha</span>
+                </div>
+
+                <!-- LOOP BACKEND -->
+                <div class="historial-row">
+                    <span class="tag">Análisis</span>
+                    <span>Hemograma</span>
+                    <span>12 Oct</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>
