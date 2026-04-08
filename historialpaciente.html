@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioCare Citas</title>
+
+    <link rel="stylesheet" href="style/stylepaciente_panel.css">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- =========================
+         SIDEBAR (MENÚ LATERAL)
+         ========================= -->
+    <aside class="sidebar">
+
+        <!-- LOGO (ESTÁTICO) -->
+        <div class="logo">
+            <img src="img/logo.png">
+            <div>
+                <h1>BioCare</h1>
+                <p>Portal del Paciente</p>
+            </div>
+        </div>
+
+        <!-- =========================
+             MENÚ PRINCIPAL (NAVEGACIÓN)
+             ========================= -->
+        <nav class="menu">
+            <a>
+                <i class="fa-solid fa-house"></i>
+                <span>Panel</span>
+            </a>
+
+            <a>
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Citas</span>
+            </a>
+
+            <a class="active">
+                <i class="fa-solid fa-file-medical"></i>
+                <span>Historial</span>
+            </a>
+        </nav>
+
+        <!-- =========================
+             USUARIO (DINÁMICO BACKEND)
+             ESTE ES EL QUE TAMBIÉN DEBE FUNCIONAR EN RESPONSIVE
+             ========================= -->
+        <div class="user">
+            <!-- Icon user -->
+            
+                <i class="fa-solid fa-user user-icon"></i>
+            
+            <div>
+                <!-- NOMBRE DINÁMICO -->
+                <p><!-- PHP: echo $usuario['nombre']; --> Juan Pérez</p>
+
+                <!-- ROL DINÁMICO -->
+                <span><!-- PHP: echo $usuario['rol']; --> Paciente</span>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- =========================
+         CONTENIDO PRINCIPAL
+         ========================= -->
+    <main class="main">
+
+        <!-- HEADER (FIJO) -->
+        <header class="header">
+            <h2>
+                Historial de Citas
+            </h2>
+            <p>Consulta el registro de tus citas médicas pasadas y canceladas.</p>
+        </header>
+
+        <div class="historial-grid">
+
+    <!-- =========================
+         AVISO IMPORTANTE
+    ========================= -->
+    <section class="card historial-alerta">
+        <div class="card-header">
+            <h3>
+                <i class="fa-solid fa-triangle-exclamation"></i> Importante
+            </h3>
+        </div>
+
+        <!-- TEXTO ESTÁTICO (NO CAMBIAR) -->
+        <p>
+            Las cancelaciones recurrentes de citas pueden afectar tu acceso a servicios médicos.
+        </p>
+    </section>    
+
+    <!-- =========================
+         RESUMEN DE CITAS (DINÁMICO)
+    ========================= -->
+    <section class="historial-resumen">
+
+        <!-- CARD: CITAS COMPLETADAS -->
+        <div class="card resumen-box">
+            <i class="fa-solid fa-check-circle"></i>
+
+            <p>CITAS COMPLETADAS</p>
+
+            <!-- 🔥 BACKEND:
+                 Reemplazar el número con datos dinámicos
+                 Ejemplo PHP: echo $resumen['completadas'];
+            -->
+            <h2 id="total-completadas">24</h2>
+        </div>
+
+        <!-- CARD: CITAS CANCELADAS -->
+        <div class="card resumen-box">
+            <i class="fa-solid fa-times-circle"></i>
+
+            <p>CITAS CANCELADAS</p>
+
+            <!-- 🔥 BACKEND:
+                 Reemplazar el número con datos dinámicos
+                 Ejemplo PHP: echo $resumen['canceladas'];
+            -->
+            <h2 id="total-canceladas">02</h2>
+        </div>
+
+    </section>
+
+    <!-- =========================
+         REGISTRO DE ATENCIONES (DINÁMICO)
+    ========================= -->
+    <section class="card historial-tabla">
+
+        <div class="card-header">
+            <h3>
+                <i class="fa-solid fa-notes-medical"></i>
+                Mi Registro de Atenciones
+            </h3>
+        </div>
+
+        <table class="tabla-historial">
+
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Especialidad / Médico</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <!-- 🔥 BACKEND:
+                 Este tbody debe llenarse dinámicamente con un loop
+                 Ejemplo PHP:
+
+                 foreach($citas as $cita){
+                     echo "<tr>...</tr>";
+                 }
+            -->
+            <tbody id="tabla-historial-body">
+
+                <!-- 🔻 EJEMPLO DE FILA (ELIMINAR EN PRODUCCIÓN) -->
+                <tr>
+                    <td>24/10/2023</td>
+                    <td>Cardiología - Dr. López</td>
+                    <td>Completada</td>
+                    <td>
+                        <!-- 🔥 BACKEND:
+                             Botones pueden depender del estado
+                        -->
+                        <button class="btn-detalle">Ver</button>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</div>
+
+</main>
+
+</div>
+
+</body>
+</html>

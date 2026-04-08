@@ -85,97 +85,127 @@
         <div class="citas-grid">
 
     <!-- =========================
-         FORMULARIO
-    ========================= -->
-    <section class="card citas-form">
-        <div class="card-header">
-            <h3><i class="fa-solid fa-plus"></i> Nueva Cita</h3>
+     FORMULARIO (DINÁMICO)
+========================= -->
+<section class="card citas-form">
+
+    <div class="card-header">
+        <h3><i class="fa-solid fa-plus"></i> Nueva Cita</h3>
+    </div>
+
+    <!-- 🔥 BACKEND:
+         method="POST" → envío de datos
+         action → ruta donde backend procesará la cita
+    -->
+    <form class="form-cita" method="POST" action="/crear-cita">
+
+        <!-- ESPECIALIDAD -->
+        <div class="form-group">
+            <label>Especialidad</label>
+
+            <!-- 🔥 BACKEND:
+                 Llenar dinámicamente las opciones
+            -->
+            <select name="especialidad" id="select-especialidad" required>
+                <option value="">Selecciona una especialidad</option>
+
+                <!-- EJEMPLO -->
+                <!-- <option value="cardiologia">Cardiología</option> -->
+            </select>
         </div>
 
-        <form class="form-cita">
+        <!-- MEDICO -->
+        <div class="form-group">
+            <label>Médico</label>
 
+            <!-- 🔥 BACKEND:
+                 Dependiente de especialidad (opcional con JS)
+            -->
+            <select name="medico" id="select-medico" required>
+                <option value="">Selecciona un médico</option>
+            </select>
+        </div>
+
+        <!-- FECHA Y HORA -->
+        <div class="form-row">
             <div class="form-group">
-                <label>Especialidad</label>
-                <select>
-                    <option>Selecciona una especialidad</option>
-                    <option>Cardiología</option>
-                    <option>Dermatología</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>Médico</label>
-                <select>
-                    <option>Selecciona un médico</option>
-                    <option>Dr. Gómez</option>
-                </select>
-            </div>
-
-            <!-- fila -->
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Fecha</label>
-                    <input type="date">
-                </div>
-
-                <div class="form-group">
-                    <label>Hora</label>
-                    <input type="time">
-                </div>
+                <label>Fecha</label>
+                <input type="date" name="fecha" required>
             </div>
 
             <div class="form-group">
-                <label>Prioridad</label>
-                <select>
-                    <option>Baja</option>
-                    <option>Media</option>
-                    <option>Alta</option>
-                </select>
+                <label>Hora</label>
+                <input type="time" name="hora" required>
             </div>
+        </div>
 
-            <div class="form-group">
-                <label>Motivo</label>
-                <textarea rows="3"></textarea>
-            </div>
+        <!-- PRIORIDAD -->
+        <div class="form-group">
+            <label>Prioridad</label>
+            <select name="prioridad" required>
+                <option value="baja">Baja</option>
+                <option value="media">Media</option>
+                <option value="alta">Alta</option>
+            </select>
+        </div>
 
-            <button class="btn-primary">
-                <i class="fa-solid fa-calendar-plus"></i>
-                Agendar Cita
-            </button>
+        <!-- MOTIVO -->
+        <div class="form-group">
+            <label>Motivo</label>
+            <textarea name="motivo" rows="3" required></textarea>
+        </div>
 
-        </form>
-    </section>
+        <!-- BOTÓN -->
+        <button type="submit" class="btn-primary">
+            <i class="fa-solid fa-calendar-plus"></i>
+            Agendar Cita
+        </button>
+
+    </form>
+
+</section>
 
     <!-- =========================
-         CITAS PENDIENTES
-    ========================= -->
-    <section class="card citas-list">
-        <div class="card-header">
-            <h3><i class="fa-solid fa-calendar-days"></i> Mis Citas</h3>
-        </div>
+     CITAS PENDIENTES (DINÁMICO)
+========================= -->
+<section class="card citas-list">
 
-        <table class="tabla-citas">
-            <thead>
-                <tr>
-                    <th>Médico</th>
-                    <th>Fecha</th>
-                    <th>Hora</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Dr. López</td>
-                    <td>24/10/2023</td>
-                    <td>10:30</td>
-                    <td>
-                        <button class="btn-edit">Editar</button>
-                        <button class="btn-cancel">Cancelar</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+    <div class="card-header">
+        <h3><i class="fa-solid fa-calendar-days"></i> Mis Citas</h3>
+    </div>
+
+    <table class="tabla-citas">
+
+        <thead>
+            <tr>
+                <th>Médico</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <!-- 🔥 BACKEND:
+             Aquí se insertan las citas dinámicamente
+        -->
+        <tbody id="tabla-citas-body">
+
+            <!-- 🔻 EJEMPLO (ELIMINAR EN PRODUCCIÓN) -->
+            <tr>
+                <td>Dr. López</td>
+                <td>24/10/2023</td>
+                <td>10:30</td>
+                <td>
+                    <button class="btn-edit">Editar</button>
+                    <button class="btn-cancel">Cancelar</button>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
 
     <!-- =========================
          AVISOS
