@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioCare Citas</title>
+
+    <link rel="stylesheet" href="style/stylepaciente_panel.css">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- =========================
+         SIDEBAR (MENÚ LATERAL)
+         ========================= -->
+    <aside class="sidebar">
+
+        <!-- LOGO (ESTÁTICO) -->
+        <div class="logo">
+            <img src="img/logo.png">
+            <div>
+                <h1>BioCare</h1>
+                <p>Portal del Paciente</p>
+            </div>
+        </div>
+
+        <!-- =========================
+             MENÚ PRINCIPAL (NAVEGACIÓN)
+             ========================= -->
+        <nav class="menu">
+            <a>
+                <i class="fa-solid fa-house"></i>
+                <span>Panel</span>
+            </a>
+
+            <a class="active">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Citas</span>
+            </a>
+
+            <a>
+                <i class="fa-solid fa-file-medical"></i>
+                <span>Historial</span>
+            </a>
+        </nav>
+
+        <!-- =========================
+             USUARIO (DINÁMICO BACKEND)
+             ESTE ES EL QUE TAMBIÉN DEBE FUNCIONAR EN RESPONSIVE
+             ========================= -->
+        <div class="user">
+            <!-- Icon user -->
+            
+                <i class="fa-solid fa-user user-icon"></i>
+            
+            <div>
+                <!-- NOMBRE DINÁMICO -->
+                <p><!-- PHP: echo $usuario['nombre']; --> Juan Pérez</p>
+
+                <!-- ROL DINÁMICO -->
+                <span><!-- PHP: echo $usuario['rol']; --> Paciente</span>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- =========================
+         CONTENIDO PRINCIPAL
+         ========================= -->
+    <main class="main">
+
+        <!-- HEADER (FIJO) -->
+        <header class="header">
+            <h2>
+                Gestion de Citas
+            </h2>
+            <p>Organiza tus consultas medicas y revisa tu agenda.</p>
+        </header>
+
+        <div class="citas-grid">
+
+    <!-- =========================
+         FORMULARIO
+    ========================= -->
+    <section class="card citas-form">
+        <div class="card-header">
+            <h3><i class="fa-solid fa-plus"></i> Nueva Cita</h3>
+        </div>
+
+        <form class="form-cita">
+
+            <div class="form-group">
+                <label>Especialidad</label>
+                <select>
+                    <option>Selecciona una especialidad</option>
+                    <option>Cardiología</option>
+                    <option>Dermatología</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Médico</label>
+                <select>
+                    <option>Selecciona un médico</option>
+                    <option>Dr. Gómez</option>
+                </select>
+            </div>
+
+            <!-- fila -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Fecha</label>
+                    <input type="date">
+                </div>
+
+                <div class="form-group">
+                    <label>Hora</label>
+                    <input type="time">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Prioridad</label>
+                <select>
+                    <option>Baja</option>
+                    <option>Media</option>
+                    <option>Alta</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Motivo</label>
+                <textarea rows="3"></textarea>
+            </div>
+
+            <button class="btn-primary">
+                <i class="fa-solid fa-calendar-plus"></i>
+                Agendar Cita
+            </button>
+
+        </form>
+    </section>
+
+    <!-- =========================
+         CITAS PENDIENTES
+    ========================= -->
+    <section class="card citas-list">
+        <div class="card-header">
+            <h3><i class="fa-solid fa-calendar-days"></i> Mis Citas</h3>
+        </div>
+
+        <table class="tabla-citas">
+            <thead>
+                <tr>
+                    <th>Médico</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dr. López</td>
+                    <td>24/10/2023</td>
+                    <td>10:30</td>
+                    <td>
+                        <button class="btn-edit">Editar</button>
+                        <button class="btn-cancel">Cancelar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- =========================
+         AVISOS
+    ========================= -->
+    <section class="card citas-avisos">
+        <div class="card-header">
+            <h3><i class="fa-solid fa-circle-info"></i> Avisos</h3>
+        </div>
+
+        <div class="aviso">
+            <h4><i class="fa-solid fa-triangle-exclamation"></i> Recordatorio</h4>
+            <p>Cancelar con 24h de anticipación.</p>
+        </div>
+
+        <div class="aviso">
+            <h4><i class="fa-solid fa-lightbulb"></i> Nota</h4>
+            <p>Recibirás notificaciones por correo.</p>
+        </div>
+    </section>
+
+    <!-- =========================
+         INFO CARDS
+    ========================= -->
+    <section class="citas-info">
+        <div class="card info-box">
+            <i class="fa-solid fa-shield"></i>
+            <p>Seguro activo</p>
+        </div>
+
+        <div class="card info-box">
+            <i class="fa-solid fa-briefcase-medical"></i>
+            <p>Consultas ilimitadas</p>
+        </div>
+
+        <div class="card info-box">
+            <i class="fa-solid fa-clock"></i>
+            <p>Agenda anticipada</p>
+        </div>
+    </section>
+
+</div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

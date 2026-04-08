@@ -402,3 +402,437 @@ body{
             "historial";
     }
 }
+
+
+
+
+
+
+
+
+/* ARRIBA ESTA ESTABLECIDO EL STYLE DEL PANEL PRINCIPAL, 
+   AQUI SE BUSCA AÑADIR STYLE DE CONTENEDORES DE LA SECCION
+   CITAS, LA CUAL ES EL FORMULARIO Y CUADROS INFORMATIVOS Y EL RESPONSIVE */
+
+
+/* =========================
+   GRID PRINCIPAL CITAS
+========================= */
+.citas-grid{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:auto auto auto;
+    grid-template-areas:
+        "form lista"
+        "form avisos"
+        "info info";
+    gap:20px;
+}
+
+/* =========================
+   ÁREAS
+========================= */
+.citas-form{
+    grid-area:form;
+    display:flex;
+    flex-direction:column;
+}
+
+.citas-list{
+    grid-area:lista;
+}
+
+.citas-avisos{
+    grid-area:avisos;
+}
+
+.citas-info{
+    grid-area:info;
+}
+
+/* =========================
+   FORMULARIO (ESTRUCTURA)
+========================= */
+.form-cita{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.form-row{
+    display:flex;
+    gap:10px;
+}
+
+.form-row .form-group{
+    flex:1;
+}
+
+/* =========================
+   TABLA (AJUSTE CONTENEDOR)
+========================= */
+.citas-list{
+    display:flex;
+    flex-direction:column;
+}
+
+.tabla-citas{
+    width:100%;
+    border-collapse:collapse;
+}
+
+/* =========================
+   AVISOS (AJUSTE)
+========================= */
+.citas-avisos{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+/* =========================
+   CARDS INFERIORES
+========================= */
+.citas-info{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width:1024px){
+    .citas-grid{
+        grid-template-columns:1fr;
+        grid-template-areas:
+            "form"
+            "lista"
+            "avisos"
+            "info";
+    }
+}
+
+@media (max-width:768px){
+
+    .form-row{
+        flex-direction:column;
+    }
+
+    .citas-info{
+        grid-template-columns:1fr;
+    }
+}
+
+
+/* =========================
+   CARD BASE (CONTENEDORES)
+========================= */
+.card{
+    background:#ffffff;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.05);
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+/* HEADER DE CARD */
+.card-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:5px;
+}
+
+.card-header h3{
+    font-size:16px;
+    font-weight:600;
+    color:#1f2937;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.card-header i{
+    color:#2563eb;
+}
+
+/* =========================
+   FORMULARIO ESTILO UI
+========================= */
+.form-cita{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.form-group label{
+    font-size:13px;
+    color:#374151;
+    font-weight:500;
+}
+
+/* INPUTS */
+.form-group input,
+.form-group select,
+.form-group textarea{
+    padding:10px 12px;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+    background:#f9fafb;
+    font-size:14px;
+    transition:.25s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    background:#fff;
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,0.1);
+    outline:none;
+}
+
+/* FILAS */
+.form-row{
+    display:flex;
+    gap:12px;
+}
+
+/* BOTÓN */
+.btn-primary{
+    margin-top:10px;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    background:#2563eb;
+    color:#fff;
+    font-size:14px;
+    font-weight:500;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.btn-primary:hover{
+    background:#1e40af;
+}
+
+/* =========================
+   TABLA CITAS
+========================= */
+.tabla-citas{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13px;
+}
+
+.tabla-citas thead{
+    background:#f9fafb;
+}
+
+.tabla-citas th{
+    text-align:left;
+    padding:10px;
+    color:#6b7280;
+    font-weight:500;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.tabla-citas td{
+    padding:12px 10px;
+    border-bottom:1px solid #f1f5f9;
+    color:#374151;
+}
+
+.tabla-citas tbody tr:hover{
+    background:#f1f5f9;
+}
+
+/* BOTONES TABLA */
+.btn-edit,
+.btn-cancel{
+    padding:6px 10px;
+    border-radius:8px;
+    font-size:12px;
+    border:none;
+    cursor:pointer;
+}
+
+.btn-edit{
+    background:#dbeafe;
+    color:#1d4ed8;
+}
+
+.btn-cancel{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+/* =========================
+   AVISOS
+========================= */
+.citas-avisos{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.aviso{
+    padding:12px;
+    border-radius:12px;
+    background:#f8fafc;
+    border-left:4px solid #2563eb;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.aviso h4{
+    font-size:13px;
+    font-weight:600;
+    color:#1f2937;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.aviso p{
+    font-size:12px;
+    color:#6b7280;
+}
+
+/* =========================
+   CARDS INFORMATIVAS
+========================= */
+.citas-info{
+    margin-top:5px;
+}
+
+.info-box{
+    padding:18px;
+    border-radius:14px;
+    background:#f9fafb;
+    border:1px solid #e5e7eb;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:6px;
+    transition:.25s;
+}
+
+.info-box:hover{
+    transform:translateY(-3px);
+}
+
+.info-box i{
+    font-size:20px;
+    color:#2563eb;
+}
+
+.info-box span{
+    font-size:12px;
+    color:#6b7280;
+}
+
+.info-box h3{
+    font-size:18px;
+    font-weight:600;
+    color:#1f2937;
+}
+
+textarea{
+    resize:none;
+}
+
+/* =========================
+   RESPONSIVE - TABLET
+========================= */
+@media (max-width:1024px){
+
+    .citas-grid{
+        grid-template-columns:1fr 1fr;
+        grid-template-areas:
+            "form form"
+            "lista avisos"
+            "info info";
+    }
+
+    /* Ajuste formulario */
+    .citas-form{
+        width:100%;
+    }
+
+    /* Cards en 2 columnas */
+    .citas-info{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+/* =========================
+   RESPONSIVE - MÓVIL
+========================= */
+@media (max-width:768px){
+
+    .citas-grid{
+        grid-template-columns:1fr;
+        grid-template-areas:
+            "form"
+            "lista"
+            "avisos"
+            "info";
+        gap:15px;
+    }
+
+    /* Inputs en columna */
+    .form-row{
+        flex-direction:column;
+    }
+
+    /* Cards en columna */
+    .citas-info{
+        grid-template-columns:1fr;
+    }
+
+    /* Tabla scroll horizontal si se rompe */
+    .citas-list{
+        overflow-x:auto;
+    }
+
+    .tabla-citas{
+        min-width:500px;
+    }
+}
+
+/* =========================
+   EXTRA - MÓVIL PEQUEÑO
+========================= */
+@media (max-width:480px){
+
+    .card{
+        padding:15px;
+    }
+
+    .card-header h3{
+        font-size:14px;
+    }
+
+    .btn-primary{
+        font-size:13px;
+        padding:10px;
+    }
+}
