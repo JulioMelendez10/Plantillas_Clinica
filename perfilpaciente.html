@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioCare Perfil-Paciente</title>
+
+    <link rel="stylesheet" href="style/stylepaciente_panel.css">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- =========================
+         SIDEBAR (MENÚ LATERAL)
+         ========================= -->
+    <aside class="sidebar">
+
+        <!-- LOGO (ESTÁTICO) -->
+        <div class="logo">
+            <img src="img/logo.png">
+            <div>
+                <h1>BioCare</h1>
+                <p>Portal del Paciente</p>
+            </div>
+        </div>
+
+        <!-- =========================
+             MENÚ PRINCIPAL (NAVEGACIÓN)
+             ========================= -->
+        <nav class="menu">
+            <a>
+                <i class="fa-solid fa-house"></i>
+                <span>Panel</span>
+            </a>
+
+            <a>
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Citas</span>
+            </a>
+
+            <a>
+                <i class="fa-solid fa-file-medical"></i>
+                <span>Historial</span>
+            </a>
+        </nav>
+
+        <!-- =========================
+             USUARIO (DINÁMICO BACKEND)
+             ESTE ES EL QUE TAMBIÉN DEBE FUNCIONAR EN RESPONSIVE
+             ========================= -->
+    
+        <div class="user">
+            <!-- Icon user -->
+                <i class="fa-solid fa-user user-icon"></i>
+            
+            <div>
+                <!-- NOMBRE DINÁMICO -->
+                <p><!-- PHP: echo $usuario['nombre']; --> Juan Pérez</p>
+
+                <!-- ROL DINÁMICO -->
+                <span><!-- PHP: echo $usuario['rol']; --> Paciente</span>
+            </div>
+        </div>
+    
+    </aside>
+
+<!-- =========================
+     CONTENIDO PRINCIPAL
+     ========================= -->
+<main class="main">
+
+    <!-- HEADER (FIJO) -->
+    <header class="header">
+        <h2>Mi Cuenta</h2>
+        <p>Gestiona tu perfil.</p>
+    </header>
+
+    <!-- =========================
+         GRID PERFIL
+         ========================= -->
+    <div class="perfilpaciente-grid">
+
+        <!-- =========================
+     CARD 1: PERFIL PRINCIPAL
+========================= -->
+<section class="card perfil-main">
+
+    <div class="perfil-user">
+
+        <!-- ICONO -->
+        <div class="icon-wrapper">
+            <i class="fa-solid fa-user"></i>
+        </div>
+
+        <!-- DATOS -->
+        <div class="perfil-info-text">
+
+            <!-- 🔥 BACKEND: nombre dinámico -->
+            <p id="nombre-usuario">Juan Pérez</p>
+
+            <!-- 🔥 BACKEND: rol dinámico -->
+            <span id="rol-usuario">Paciente</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+        <!-- =========================
+             CARD 2: INFORMACIÓN GENERAL
+        ========================= -->
+        <section class="card perfil-info">
+
+            <div class="card-header">
+                <h3>
+                    <i class="fa-solid fa-id-card"></i>
+                    Información General
+                </h3>
+            </div>
+
+            <div class="info-content">
+
+                <!-- 🔥 BACKEND:
+                     Cada campo debe llenarse dinámicamente
+                -->
+
+                <div class="info-item">
+                    <p class="label">Correo</p>
+                    <span id="correo-usuario">correo@ejemplo.com</span>
+                </div>
+
+                <div class="info-item">
+                    <p class="label">Teléfono</p>
+                    <span id="telefono-usuario">+52 123 456 7890</span>
+                </div>
+
+                <div class="info-item">
+                    <p class="label">Fecha de Registro</p>
+                    <span id="registro-usuario">01/01/2024</span>
+                </div>
+
+                <div class="info-item">
+                    <p class="label">Dirección</p>
+                    <span id="direccion-usuario">Apizaco, Tlaxcala</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CARD 3: ESTADO DE CUENTA
+        ========================= -->
+        <section class="card perfil-verificacion">
+
+            <div class="card-header">
+                <h3>
+                    <i class="fa-solid fa-shield-check"></i>
+                    Estado de la Cuenta
+                </h3>
+            </div>
+
+            <div class="verificacion-content">
+
+                <!-- 🔥 BACKEND:
+                     Estado dinámico de verificación
+                     Puede cambiar clase según estado
+                     (verificado / pendiente / rechazado)
+                -->
+                <div class="estado verificado" id="estado-cuenta">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <p>Cuenta verificada</p>
+                </div>
+
+                <!-- 🔥 OPCIONAL BACKEND:
+                     Mensaje adicional dependiendo del estado
+                -->
+                <span class="detalle-estado" id="detalle-estado">
+                    Tu cuenta ha sido validada correctamente.
+                </span>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+</div>
+
+</body>
+</html>

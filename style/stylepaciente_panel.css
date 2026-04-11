@@ -1040,3 +1040,196 @@ textarea{
         overflow-x:auto;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ARRIBA ESTA ESTABLECIDO EL STYLE DEL PANEL PRINCIPAL, REGISTRO CITAS, HISTORIAL, 
+   AQUI SE BUSCA AÑADIR STYLE DE CONTENEDORES DE LA SECCION
+   PERFIL USUARIO, LA CUAL ES EL CUADROS INFORMATIVOS Y EL RESPONSIVE */
+
+   /* =========================
+   GRID GENERAL
+========================= */
+.perfilpaciente-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* =========================
+   ESTILO GENERAL DE CARDS
+========================= */
+.card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+/* =========================
+   CARD PERFIL PRINCIPAL
+========================= */
+.perfil-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+/* CONTENEDOR (ya no usamos .user para evitar conflictos) */
+.perfil-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* CONTENEDOR ICONO */
+.icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ICONO (100% centrado REAL) */
+.icon-wrapper i {
+    font-size: 55px;
+    color: #444;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    line-height: 1;
+
+    /* 🔥 reset total */
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+}
+
+/* TEXTO */
+.perfil-info-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* NOMBRE */
+#nombre-usuario {
+    font-size: 18px;
+    font-weight: 600;
+    color: #222;
+    margin: 0;
+}
+
+/* ROL */
+#rol-usuario {
+    font-size: 13px;
+    color: #777;
+    margin: 0;
+}
+
+/* =========================
+   CARD 2: INFORMACIÓN
+========================= */
+.perfil-info .card-header {
+    margin-bottom: 15px;
+}
+
+.perfil-info h3 {
+    font-size: 16px;
+    color: #444;
+}
+
+.info-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.info-item .label {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.info-item span {
+    font-size: 15px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* =========================
+   CARD 3: VERIFICACIÓN
+========================= */
+.perfil-verificacion {
+    grid-column: span 2; /* ocupa todo el ancho */
+}
+
+.verificacion-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ESTADO */
+.estado {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+/* VERIFICADO (AZUL COMO TU UI) */
+.estado.verificado {
+    background: #eaf2ff;
+    color: #2c6ed5;
+}
+
+/* ICONO */
+.estado i {
+    font-size: 18px;
+}
+
+/* TEXTO EXTRA */
+.detalle-estado {
+    color: #666;
+    font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+    .perfilpaciente-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .perfil-verificacion {
+        grid-column: span 1;
+    }
+
+    .info-content {
+        grid-template-columns: 1fr;
+    }
+}
