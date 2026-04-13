@@ -1,0 +1,507 @@
+/* =========================
+   RESET
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    background:#f6f8fb;
+    overflow:hidden;
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+.container{
+    display:flex;
+    height:100vh;
+}
+
+/* =========================
+   SIDEBAR (AHORA AZUL)
+========================= */
+.sidebar{
+    width:260px;
+    background:#2563eb; /* 🔵 CAMBIO */
+    border-right:none;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:20px;
+}
+
+/* LOGO */
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo img{
+    width:40px;
+}
+
+.logo h1{
+    font-size:18px;
+    color:#ffffff; /* 🔵 */
+}
+
+.logo p{
+    font-size:12px;
+    color:#dbeafe; /* 🔵 */
+}
+
+/* =========================
+   MENU
+========================= */
+.menu{
+    margin-top:30px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.menu a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px;
+    border-radius:10px;
+    color:#e0e7ff; /* 🔵 */
+    cursor:pointer;
+    transition:.3s;
+}
+
+.menu a i{
+    color:#e0e7ff; /* 🔵 */
+}
+
+/* ACTIVO */
+.menu a.active{
+    background:#1e40af; /* 🔵 */
+    color:#ffffff;
+}
+
+.menu a.active i{
+    color:#ffffff;
+}
+
+/* HOVER */
+.menu a:hover{
+    background:#1e3a8a; /* 🔵 */
+}
+
+/* =========================
+   USER
+========================= */
+.user{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px;
+    border-radius:12px;
+    transition:.3s;
+}
+
+/* 🔥 HOVER TOTAL (RECTANGULAR) */
+.user:hover{
+    background:#1e40af;
+    cursor:pointer;
+}
+
+/* ICONO COMO LOS DEL MENÚ */
+.user-icon{
+    font-size:18px;
+    color:#ffffff;
+
+    /* 🔥 CLAVE PARA ALINEACIÓN */
+    width:20px;
+    text-align:center;
+    line-height:1;
+}
+
+/* TEXTO */
+.user div{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.user p{
+    font-size:14px;
+    color:#ffffff;
+    margin:0;
+}
+
+.user span{
+    font-size:12px;
+    color:#dbeafe;
+    margin:0;
+}
+
+/* =========================
+   MAIN
+========================= */
+.main{
+    flex:1;
+    padding:25px;
+    overflow:auto;
+}
+
+/* HEADER */
+.header h2{
+    font-size:26px;
+    color:#1f2937;
+}
+
+.header p{
+    color:#6b7280;
+    margin-top:5px;
+}
+
+/* =========================
+   GRID
+========================= */
+.grid{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    grid-template-areas:
+        "citas horarios"
+        "historial especialidades";
+    gap:20px;
+}
+
+/* =========================
+   CARDS
+========================= */
+.card{
+    background:#ffffff;
+    border-radius:15px;
+    padding:18px;
+    border:1px solid #e5e7eb;
+}
+
+/* 🔵 ICONOS DE CARDS */
+.card-header h3 i{
+    color:#2563eb;
+}
+
+/* AREAS */
+.citas{grid-area:citas;}
+.horarios{grid-area:horarios;}
+.historial{grid-area:historial;}
+.especialidades{grid-area:especialidades;}
+
+/* =========================
+   HEADER CARD
+========================= */
+.card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.card-header h3{
+    color:#1f2937;
+    font-size:16px;
+}
+
+.card-header button{
+    background:none;
+    border:none;
+    color:#2563eb;
+    cursor:pointer;
+    font-weight:500;
+}
+
+/* =========================
+   GRID PRINCIPAL
+========================= */
+.citasdoc-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+}
+
+/* =========================
+   CARDS SUPERIORES
+========================= */
+.resumen-doc{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+}
+
+/* =========================
+   CARD: PRÓXIMA CONSULTA
+========================= */
+.proxima-consulta{
+    background: linear-gradient(135deg, #1d4ed8, #4338ca);
+    color:#fff;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    position:relative;
+    overflow:hidden;
+}
+
+.proxima-consulta .label{
+    font-size:12px;
+    letter-spacing:2px;
+    opacity:0.8;
+}
+
+.proxima-consulta h2{
+    margin-top:10px;
+    font-size:24px;
+    font-weight:600;
+}
+
+/* efecto decorativo (tipo cruz fondo) */
+.proxima-consulta::after{
+    content:"";
+    position:absolute;
+    right:-20px;
+    bottom:-20px;
+    width:120px;
+    height:120px;
+    background:rgba(255,255,255,0.1);
+    border-radius:20px;
+}
+
+/* =========================
+   CARD: CITAS HOY
+========================= */
+.citas-hoy{
+    background:#ffffff;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.05);
+    text-align:center;
+}
+
+.citas-hoy .label{
+    font-size:12px;
+    color:#6b7280;
+    letter-spacing:1px;
+}
+
+.citas-hoy h2{
+    font-size:42px;
+    color:#1d4ed8;
+    margin:10px 0;
+}
+
+.citas-hoy span{
+    font-size:14px;
+    color:#6b7280;
+}
+
+/* =========================
+   TABLA CONTENEDOR
+========================= */
+.historial-tabla{
+    background:#ffffff;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* HEADER */
+.historial-tabla .card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.historial-tabla h3{
+    font-size:16px;
+    color:#111827;
+}
+
+/* =========================
+   TABLA
+========================= */
+.tabla-historial{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.tabla-historial thead{
+    background:#f9fafb;
+}
+
+.tabla-historial th{
+    text-align:left;
+    font-size:12px;
+    color:#6b7280;
+    padding:12px;
+    letter-spacing:1px;
+}
+
+.tabla-historial td{
+    padding:15px 12px;
+    font-size:14px;
+    border-top:1px solid #f1f5f9;
+}
+
+/* hover */
+.tabla-historial tbody tr:hover{
+    background:#f9fafb;
+}
+
+/* =========================
+   PACIENTE (AVATAR)
+========================= */
+.paciente{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.avatar{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    background:#e5e7eb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    font-weight:600;
+    color:#374151;
+}
+
+/* =========================
+   PRIORIDAD (BADGES)
+========================= */
+.badge{
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+}
+
+/* ALTA */
+.badge.alta{
+    background:#fee2e2;
+    color:#b91c1c;
+}
+
+/* MEDIA */
+.badge.media{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+/* BAJA */
+.badge.baja{
+    background:#e5e7eb;
+    color:#374151;
+}
+
+/* =========================
+   BOTONES ACCIONES
+========================= */
+.acciones{
+    display:flex;
+    gap:10px;
+}
+
+/* CONFIRMAR */
+.btn-confirmar{
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    padding:6px 12px;
+    border-radius:8px;
+    font-size:13px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.btn-confirmar:hover{
+    background:#1d4ed8;
+}
+
+/* CANCELAR */
+.btn-cancelar{
+    background:#fee2e2;
+    color:#b91c1c;
+    border:none;
+    padding:6px 12px;
+    border-radius:8px;
+    font-size:13px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.btn-cancelar:hover{
+    background:#fecaca;
+}
+
+/* =========================
+   FOOTER TABLA
+========================= */
+.tabla-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:15px;
+}
+
+.info-tabla{
+    font-size:13px;
+    color:#6b7280;
+}
+
+/* =========================
+   PAGINACIÓN
+========================= */
+.paginacion{
+    display:flex;
+    gap:8px;
+}
+
+.btn-page{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    border:1px solid #e5e7eb;
+    background:#fff;
+    cursor:pointer;
+}
+
+.btn-page.active{
+    background:#2563eb;
+    color:#fff;
+    border:none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width:900px){
+
+    .resumen-doc{
+        grid-template-columns:1fr;
+    }
+}
+
+@media (max-width:768px){
+
+    .tabla-historial{
+        min-width:650px;
+    }
+
+    .historial-tabla{
+        overflow-x:auto;
+    }
+}
