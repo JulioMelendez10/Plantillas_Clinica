@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioCare Historial</title>
+
+    <link rel="stylesheet" href="style/styledoctor.css">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- =========================
+         SIDEBAR (MENÚ LATERAL)
+         ========================= -->
+    <aside class="sidebar">
+
+        <!-- LOGO (ESTÁTICO) -->
+        <div class="logo">
+            <img src="img/logo.png">
+            <div>
+                <h1>BioCare</h1>
+                <p>Portal del Doctor</p>
+            </div>
+        </div>
+
+        <!-- =========================
+             MENÚ PRINCIPAL (NAVEGACIÓN)
+             ========================= -->
+        <nav class="menu">
+
+            <a>
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Citas Programadas</span>
+            </a>
+
+            <a class="active">
+                <i class="fa-solid fa-file-medical"></i>
+                <span>Historial</span>
+            </a>
+        </nav>
+
+        <!-- =========================
+             USUARIO (DINÁMICO BACKEND)
+             ESTE ES EL QUE TAMBIÉN DEBE FUNCIONAR EN RESPONSIVE
+             ========================= -->
+        <div class="user">
+            <!-- Icon user -->
+            
+                <i class="fa-solid fa-user user-icon"></i>
+            
+            <div>
+                <!-- NOMBRE DINÁMICO -->
+                <p><!-- PHP: echo $usuario['nombre']; --> Juan Pérez</p>
+
+                <!-- ROL DINÁMICO -->
+                <span><!-- PHP: echo $usuario['rol']; --> Paciente</span>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- =========================
+         CONTENIDO PRINCIPAL
+         ========================= -->
+    <main class="main">
+
+        <!-- HEADER (FIJO) -->
+        <header class="header">
+            <h2>
+                Historial de Citas
+            </h2>
+            <p>Consulta el registro de tus citas médicas pasadas y canceladas.</p>
+        </header>
+
+        <div class="historial-grid">
+
+    <!-- =========================
+         RESUMEN (DINÁMICO)
+    ========================= -->
+    <section class="historial-resumen">
+
+        <div class="card resumen-box">
+            <p>CITAS TOTALES</p>
+
+            <!-- 🔥 BACKEND:
+                 Reemplazar con:
+                 <?= number_format($resumen['totales']) ?>
+            -->
+            <h2>1,284</h2>
+        </div>
+
+        <div class="card resumen-box">
+            <p>CITAS CANCELADAS</p>
+
+            <!-- 🔥 BACKEND:
+                 Reemplazar con:
+                 <?= number_format($resumen['canceladas']) ?>
+            -->
+            <h2>42</h2>
+        </div>
+
+    </section>
+
+    <!-- =========================
+         TABLA
+    ========================= -->
+    <section class="card historial-tabla">
+
+        <!-- HEADER -->
+        <div class="card-header">
+            <h3>Registros Recientes</h3>
+
+            <!-- 🔥 BACKEND:
+                 <?= "MOSTRANDO " . count($citas) . " DE " . number_format($resumen['totales']) . " REGISTROS" ?>
+            -->
+            <span class="info-top">
+                MOSTRANDO 10 DE 1,284 REGISTROS
+            </span>
+        </div>
+
+        <table class="tabla-historial">
+
+            <thead>
+                <tr>
+                    <th>FECHA</th>
+                    <th>HORA</th>
+                    <th>PACIENTE</th>
+                    <th>ESTADO</th>
+                    <th>ACCIONES</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <!-- =====================================================
+                     🔥 BACKEND AQUÍ (PHP DINÁMICO)
+                ====================================================== -->
+
+                <!--
+                <?php foreach($citas as $cita): ?>
+
+                    <?php
+                        // Obtener iniciales
+                        $nombres = explode(" ", $cita['nombre']);
+                        $iniciales = strtoupper(substr($nombres[0],0,1));
+                        if(isset($nombres[1])){
+                            $iniciales .= strtoupper(substr($nombres[1],0,1));
+                        }
+
+                        // Clase de estado
+                        $estadoClase = strtolower($cita['estado']);
+                    ?>
+
+                    <tr>
+                        <td><?= date("d M, Y", strtotime($cita['fecha'])) ?></td>
+                        <td><?= date("h:i A", strtotime($cita['hora'])) ?></td>
+
+                        <td>
+                            <div class="paciente">
+                                <div class="avatar"><?= $iniciales ?></div>
+                                <div>
+                                    <p><?= $cita['nombre'] ?></p>
+                                    <span>ID: #<?= $cita['id'] ?></span>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <span class="estado <?= $estadoClase ?>">
+                                ● <?= ucfirst($cita['estado']) ?>
+                            </span>
+                        </td>
+
+                        <td class="acciones">
+                            <button class="btn-menu">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                <?php endforeach; ?>
+                -->
+
+                <!-- =====================================================
+                     🔻 EJEMPLO VISUAL (SOLO FRONTEND)
+                ====================================================== -->
+                <tr>
+                    <td>12 Oct, 2023</td>
+                    <td>09:30 AM</td>
+
+                    <td>
+                        <div class="paciente">
+                            <div class="avatar">SM</div>
+                            <div>
+                                <p>Santiago Mendoza</p>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <span class="estado completada">
+                            Completada
+                        </span>
+                    </td>
+
+                    <td class="acciones">
+                        <button class="btn-menu">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <!-- =========================
+             FOOTER / PAGINACIÓN
+        ========================= -->
+        <div class="tabla-footer">
+
+            <!-- 🔥 BACKEND:
+                 <?= "Página $pagina_actual de $total_paginas" ?>
+            -->
+            <span class="info-tabla">
+                Página 1 de 128
+            </span>
+
+            <div class="paginacion">
+
+                <!-- 🔥 BACKEND:
+                     Botón anterior
+                -->
+                <!-- <button onclick="window.location='?pagina=<?= $pagina_actual - 1 ?>'"> -->
+                <button class="btn-page">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <!-- 🔥 BACKEND:
+                     Botón siguiente
+                -->
+                <!-- <button onclick="window.location='?pagina=<?= $pagina_actual + 1 ?>'"> -->
+                <button class="btn-page">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+</main>
+
+</div>
+
+</body>
+</html>

@@ -505,3 +505,272 @@ body{
         overflow-x:auto;
     }
 }
+
+
+
+
+/* ARRIBA ESTA ESTABLECIDO EL STYLE DE CITAS, 
+   AQUI SE BUSCA AÑADIR STYLE DE CONTENEDORES DE LA SECCION
+   HISTORIAL, LA CUAL ES EL CUADROS INFORMATIVOS Y EL RESPONSIVE */
+
+
+/* =========================
+   GRID PRINCIPAL
+========================= */
+.historial-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:25px;
+}
+
+/* =========================
+   RESUMEN (CARDS)
+========================= */
+.historial-resumen{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.resumen-box{
+    background:#f9fafb;
+    padding:30px;
+    border-radius:40px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.03);
+}
+
+.resumen-box p{
+    font-size:11px;
+    color:#6b7280;
+    letter-spacing:1.5px;
+    margin-bottom:10px;
+}
+
+.resumen-box h2{
+    font-size:36px;
+    color:#111827;
+    font-weight:700;
+}
+
+/* =========================
+   TABLA CONTENEDOR
+========================= */
+.historial-tabla{
+    background:#ffffff;
+    border-radius:25px;
+    padding:20px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
+}
+
+/* HEADER */
+.historial-tabla .card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.historial-tabla h3{
+    font-size:18px;
+    color:#111827;
+}
+
+.info-top{
+    font-size:12px;
+    color:#2563eb;
+    font-weight:600;
+}
+
+/* =========================
+   TABLA
+========================= */
+.tabla-historial{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.tabla-historial thead{
+    background:#f9fafb;
+}
+
+.tabla-historial th{
+    text-align:left;
+    font-size:11px;
+    color:#9ca3af;
+    padding:12px;
+    letter-spacing:1px;
+}
+
+.tabla-historial td{
+    padding:16px 12px;
+    font-size:14px;
+    border-top:1px solid #f1f5f9;
+    vertical-align:middle;
+}
+
+/* hover */
+.tabla-historial tbody tr:hover{
+    background:#f9fafb;
+}
+
+/* =========================
+   PACIENTE (AVATAR)
+========================= */
+.paciente{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.avatar{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:#e5e7eb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+    font-weight:600;
+    color:#374151;
+}
+
+.paciente p{
+    font-weight:600;
+    margin:0;
+    color:#111827;
+}
+
+.paciente span{
+    font-size:12px;
+    color:#9ca3af;
+}
+
+/* =========================
+   ESTADOS (BADGES)
+========================= */
+.estado{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:500;
+}
+
+/* punto */
+.estado::before{
+    content:"";
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    display:inline-block;
+}
+
+/* COMPLETADA */
+.estado.completada{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.estado.completada::before{
+    background:#16a34a;
+}
+
+/* CANCELADA */
+.estado.cancelada{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.estado.cancelada::before{
+    background:#dc2626;
+}
+
+/* AUSENTE */
+.estado.ausente{
+    background:#e5e7eb;
+    color:#374151;
+}
+
+.estado.ausente::before{
+    background:#6b7280;
+}
+
+/* =========================
+   ACCIONES (3 PUNTOS)
+========================= */
+.acciones{
+    text-align:right;
+}
+
+.btn-menu{
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+    color:#9ca3af;
+}
+
+.btn-menu:hover{
+    color:#111827;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.tabla-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:20px;
+}
+
+.info-tabla{
+    font-size:13px;
+    color:#6b7280;
+}
+
+/* =========================
+   PAGINACIÓN
+========================= */
+.paginacion{
+    display:flex;
+    gap:10px;
+}
+
+.btn-page{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    border:1px solid #e5e7eb;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.btn-page:hover{
+    background:#f3f4f6;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width:768px){
+
+    .historial-resumen{
+        grid-template-columns:1fr;
+    }
+
+    .tabla-historial{
+        min-width:650px;
+    }
+
+    .historial-tabla{
+        overflow-x:auto;
+    }
+}
