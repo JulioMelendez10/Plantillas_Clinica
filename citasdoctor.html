@@ -116,15 +116,9 @@
             -->
             <h2 id="total-citas-hoy">12</h2>
 
-            <!-- 🔥 BACKEND:
-                 Citas pendientes por confirmar
-            -->
-            <span id="pendientes-hoy">4 por confirmar</span>
-
         </div>
 
     </section>
-
 
     <!-- =========================
          TABLA DE CITAS
@@ -146,7 +140,7 @@
                     <th>Hora</th>
                     <th>Paciente</th>
                     <th>Prioridad</th>
-                    <th>Acciones</th>
+                    <th>Motivo</th>
                 </tr>
             </thead>
 
@@ -173,26 +167,25 @@
                     </td>
 
                     <!-- ACCIONES -->
-                    <td class="acciones">
+                    <td class="motivo">
 
                         <!-- 🔥 BACKEND:
-                             Confirmar cita:
-                             - Cambia estado en BD
-                             - Oculta botones
-                        -->
-                        <button class="btn-confirmar">
-                            Confirmar
-                        </button>
+                            Aquí debes mostrar el motivo de la consulta o cita.
+                            Este valor viene directamente de la base de datos.
 
-                        <!-- 🔥 BACKEND:
-                             Cancelar cita:
-                             - Elimina o cambia estado
-                             - Enviar correo automático al paciente
-                             - Remover fila del DOM
+                            Ejemplo en PHP:
+                            <?= $cita['motivo'] ?>
+
+                            ⚠️ Consideraciones:
+                            - Puede ser texto corto o largo
+                            - Si viene vacío, puedes mostrar:
+                            "Sin especificar"
+                            - Puedes limitar caracteres si es muy largo
                         -->
-                        <button class="btn-cancelar">
-                            Cancelar
-                        </button>
+
+                        <span class="motivo-texto">
+                            Consulta general
+                        </span>
 
                     </td>
                 </tr>
@@ -208,9 +201,11 @@
                     <td>
                         <span class="badge media">MEDIA</span>
                     </td>
-                    <td class="acciones">
-                        <button class="btn-confirmar">Confirmar</button>
-                        <button class="btn-cancelar">Cancelar</button>
+                    <td class="motivo">
+                        <span class="motivo-texto">
+                            Revisión de resultados de laboratorio
+                        </span>
+                        
                     </td>
                 </tr>
 

@@ -191,6 +191,27 @@
 
         </section>
 
+         <!-- 🔥 BOTÓN CERRAR SESIÓN -->
+            <!-- 🔥 BACKEND:
+                 Este botón debe destruir la sesión del usuario
+                 
+                 Ejemplo en PHP:
+                 - session_start();
+                 - session_destroy();
+                 - header("Location: login.php");
+
+                 Puedes manejarlo:
+                 ✔ Con formulario (POST recomendado)
+                 ✔ Con enlace a logout.php
+            -->
+
+            <form action="logout.php" method="POST">
+                <button type="submit" class="btn-logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Cerrar sesión
+                </button>
+            </form>
+
     </div>
 
 </main>
