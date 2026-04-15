@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioCare Citas</title>
+
+    <link rel="stylesheet" href="style/styleadmin.css">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- =========================
+         SIDEBAR (MENÚ LATERAL)
+         ========================= -->
+    <aside class="sidebar">
+
+        <!-- LOGO (ESTÁTICO) -->
+        <div class="logo">
+            <img src="img/logo.png">
+            <div>
+                <h1>BioCare</h1>
+                <p>Portal del Administrador</p>
+            </div>
+        </div>
+
+        <!-- =========================
+             MENÚ PRINCIPAL (NAVEGACIÓN)
+             ========================= -->
+        <nav class="menu">
+            <a class="active">
+                <i class="fa-solid fa-house"></i>
+                <span>Solicitudes Citas</span>
+            </a>
+        </nav>
+
+        <!-- =========================
+             USUARIO (DINÁMICO BACKEND)
+             ESTE ES EL QUE TAMBIÉN DEBE FUNCIONAR EN RESPONSIVE
+             ========================= -->
+        <div class="user">
+            <!-- Icon user -->
+            
+                <i class="fa-solid fa-user user-icon"></i>
+            
+            <div>
+                <!-- NOMBRE DINÁMICO -->
+                <p><!-- PHP: echo $usuario['nombre']; --> Juan Pérez</p>
+
+                <!-- ROL DINÁMICO -->
+                <span><!-- PHP: echo $usuario['rol']; --> Administrador</span>
+            </div>
+        </div>
+
+    </aside>
+
+   <!-- =========================
+     CONTENIDO PRINCIPAL
+========================= -->
+<main class="main">
+
+    <!-- HEADER -->
+    <header class="header">
+        <h2>Solicitudes de Citas</h2>
+        <p>Gestiona las nuevas solicitudes antes de asignarlas al doctor.</p>
+    </header>
+
+    <!-- =========================
+         RESUMEN (CARDS DINÁMICAS)
+    ========================= -->
+    <div class="resumen-cards">
+
+        <!-- 🔵 SOLICITUDES PENDIENTES -->
+        <section class="card resumen azul">
+            <div>
+                <p>Solicitudes Pendientes</p>
+
+                <!-- 🔥 BACKEND:
+                     Total de citas pendientes
+                     Ejemplo:
+                     <?= $pendientes ?>
+                -->
+                <h3>24</h3>
+            </div>
+        </section>
+
+        <!-- ✅ SOLICITUDES CONFIRMADAS -->
+        <section class="card resumen">
+            <div>
+                <p>Solicitudes Confirmadas</p>
+
+                <!-- 🔥 BACKEND:
+                     Total confirmadas hoy
+                     <?= $confirmadas ?>
+                -->
+                <h3>42</h3>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- =========================
+         TABLA DE SOLICITUDES
+    ========================= -->
+    <section class="card solicitudes-list">
+
+        <div class="card-header">
+            <h3>
+                <i class="fa-solid fa-calendar-check"></i>
+                Solicitudes Recientes
+            </h3>
+        </div>
+
+        <table class="tabla-solicitudes">
+
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Paciente</th>
+                    <th>Especialidad</th>
+                    <th>Prioridad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <!-- 🔥 BACKEND:
+                 Aquí se renderizan TODAS las solicitudes dinámicamente
+                 Ejemplo en PHP:
+
+                 <?php foreach($citas as $cita): ?>
+                     <tr>
+                         <td><?= $cita['fecha'] ?></td>
+                         <td><?= $cita['hora'] ?></td>
+                         <td><?= $cita['paciente'] ?></td>
+                         <td><?= $cita['especialidad'] ?></td>
+                         <td><?= $cita['prioridad'] ?></td>
+                         <td>...</td>
+                     </tr>
+                 <?php endforeach; ?>
+            -->
+            <tbody id="tabla-solicitudes-body">
+
+                <!-- 🔻 EJEMPLO VISUAL -->
+                <tr>
+                    <td>14 Oct, 2023</td>
+                    <td>09:00 AM</td>
+                    <td>Maria Lopez</td>
+                    <td>Ginecología</td>
+                    <td><span class="prioridad alta">Alta</span></td>
+
+                    <td class="acciones">
+
+                        <!-- 🔥 BACKEND:
+                             Confirmar:
+                             - Cambia estado a confirmado
+                             - Reduce contador de pendientes
+                        -->
+                        <button class="btn-confirmar">
+                            Confirmar
+                        </button>
+
+                        <!-- 🔥 BACKEND:
+                             Cancelar:
+                             - Elimina o marca como cancelada
+                             - Notificar paciente
+                        -->
+                        <button class="btn-cancelar">
+                            Cancelar
+                        </button>
+
+                    </td>
+                </tr>
+
+                <!-- 🔻 EJEMPLO VISUAL -->
+                <tr>
+                    <td>14 Oct, 2023</td>
+                    <td>09:00 AM</td>
+                    <td>Maria Lopez</td>
+                    <td>Ginecología</td>
+                    <td><span class="prioridad media">Media</span></td>
+
+                    <td class="acciones">
+
+                        <!-- 🔥 BACKEND:
+                             Confirmar:
+                             - Cambia estado a confirmado
+                             - Reduce contador de pendientes
+                        -->
+                        <button class="btn-confirmar">
+                            Confirmar
+                        </button>
+
+                        <!-- 🔥 BACKEND:
+                             Cancelar:
+                             - Elimina o marca como cancelada
+                             - Notificar paciente
+                        -->
+                        <button class="btn-cancelar">
+                            Cancelar
+                        </button>
+
+                    </td>
+                </tr>
+
+                <!-- 🔻 EJEMPLO VISUAL -->
+                <tr>
+                    <td>14 Oct, 2023</td>
+                    <td>09:00 AM</td>
+                    <td>Maria Lopez</td>
+                    <td>Ginecología</td>
+                    <td><span class="prioridad baja">Baja</span></td>
+
+                    <td class="acciones">
+
+                        <!-- 🔥 BACKEND:
+                             Confirmar:
+                             - Cambia estado a confirmado
+                             - Reduce contador de pendientes
+                        -->
+                        <button class="btn-confirmar">
+                            Confirmar
+                        </button>
+
+                        <!-- 🔥 BACKEND:
+                             Cancelar:
+                             - Elimina o marca como cancelada
+                             - Notificar paciente
+                        -->
+                        <button class="btn-cancelar">
+                            Cancelar
+                        </button>
+
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <!-- =========================
+             PAGINACIÓN
+        ========================= -->
+        <div class="paginacion">
+
+            <!-- 🔥 BACKEND:
+                 Control de páginas
+                 Variables típicas:
+                 $pagina_actual
+                 $total_paginas
+            -->
+
+            <button class="page-btn">&lt;</button>
+
+            <!-- 🔥 BACKEND:
+                 Generar botones dinámicamente
+            -->
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+
+            <button class="page-btn">&gt;</button>
+
+        </div>
+
+    </section>
+
+</main>
+
+</div>
+
+</body>
+</html>
