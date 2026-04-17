@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioCare Metricas</title>
+
+    <link rel="stylesheet" href="style/stylemetricas.css">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- =========================
+         SIDEBAR (MENÚ LATERAL)
+         ========================= -->
+    <aside class="sidebar">
+
+        <!-- LOGO (ESTÁTICO) -->
+        <div class="logo">
+            <img src="img/logo.png">
+            <div>
+                <h1>BioCare</h1>
+                <p>Portal Metricas Sistema</p>
+            </div>
+        </div>
+
+        <!-- =========================
+             MENÚ PRINCIPAL (NAVEGACIÓN)
+             ========================= -->
+        <nav class="menu">
+            <a class="active">
+                <i class="fa-solid fa-house"></i>
+                <span>Indicadores</span>
+            </a>
+
+            <a>
+                <i class="fa-solid fa-user-doctor"></i>
+                <span>Personal Médico</span>
+        </nav>
+
+        <!-- =========================
+             USUARIO (DINÁMICO BACKEND)
+             ESTE ES EL QUE TAMBIÉN DEBE FUNCIONAR EN RESPONSIVE
+             ========================= -->
+        <div class="user">
+            <!-- Icon user -->
+            
+                <i class="fa-solid fa-user user-icon"></i>
+            
+            <div>
+                <!-- NOMBRE DINÁMICO -->
+                <p><!-- PHP: echo $usuario['nombre']; --> Cuenta Sistema</p>
+
+                <!-- ROL DINÁMICO -->
+                <span><!-- PHP: echo $usuario['rol']; --> Metricas</span>
+            </div>
+        </div>
+
+    </aside>
+
+   <!-- =========================
+     CONTENIDO PRINCIPAL
+========================= -->
+<main class="main">
+
+    <!-- HEADER -->
+    <header class="header">
+        <h2>Bienvenido a Métricas del Sistema</h2>
+        <p>Estas son las estadísticas del sistema</p>
+    </header>
+
+    <!-- =========================
+         RESUMEN (CARDS DINÁMICAS)
+    ========================= -->
+    <div class="resumen-cards">
+
+        <!-- 🔵 CITAS PROGRAMADAS -->
+        <section class="card resumen card-azul">
+            <div class="card-content">
+
+                <p class="titulo-card">Citas Programadas</p>
+
+                <!-- 🔥 BACKEND:
+                     Total de citas programadas
+                     <?= $citas_programadas ?>
+                -->
+                <h3>1,250</h3>
+
+                <!-- 🔥 BACKEND:
+                     Comparativa mensual (%)
+                     <?= $porcentaje_programadas ?>
+                -->
+                <span class="indicador positivo">
+                    +12% vs mes anterior
+                </span>
+
+            </div>
+        </section>
+
+        <!-- 🟢 CITAS ATENDIDAS -->
+        <section class="card resumen card-verde">
+            <div class="card-content">
+
+                <p class="titulo-card">Citas Atendidas</p>
+
+                <!-- 🔥 BACKEND:
+                     Total atendidas
+                     <?= $citas_atendidas ?>
+                -->
+                <h3>890</h3>
+
+                <!-- 🔥 BACKEND:
+                     Tasa de éxito
+                     <?= $tasa_exito ?>
+                -->
+                <span class="indicador positivo">
+                    71.2% tasa de éxito
+                </span>
+
+            </div>
+        </section>
+
+        <!-- 🔴 CITAS CANCELADAS -->
+        <section class="card resumen card-rojo">
+            <div class="card-content">
+
+                <p class="titulo-card">Citas Canceladas</p>
+
+                <!-- 🔥 BACKEND:
+                     Total canceladas
+                     <?= $citas_canceladas ?>
+                -->
+                <h3>45</h3>
+
+                <!-- 🔥 BACKEND:
+                     Comparativa negativa
+                     <?= $porcentaje_canceladas ?>
+                -->
+                <span class="indicador negativo">
+                    -3% vs mes anterior
+                </span>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- =========================
+         EXPORTACIÓN DE DATOS
+    ========================= -->
+    <section class="card exportacion">
+
+        <div class="exportacion-content">
+
+            <div class="exportacion-texto">
+                <h3>Exportación de Datos Globales</h3>
+
+                <p>
+                    Genera un documento PDF detallado con todas las métricas operativas y
+                    tendencias de los últimos 30 días para revisiones directivas.
+                </p>
+            </div>
+
+            <!-- 🔥 BACKEND:
+                 Botón para generar reporte PDF
+                 - Puede llamar a un controlador
+                 - Generar archivo dinámico
+                 - Descargar automáticamente
+
+                 Ejemplo:
+                 action="generar_reporte.php"
+            -->
+            <form method="POST" action="/generar-reporte">
+                <button type="submit" class="btn-reporte">
+                    <i class="fa-solid fa-download"></i>
+                    Descargar Reporte
+                </button>
+            </form>
+
+        </div>
+
+    </section>
+
+</main>
+
+</div>
+
+</body>
+</html>

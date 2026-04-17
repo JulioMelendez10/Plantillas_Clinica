@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioCare Metricas</title>
+
+    <link rel="stylesheet" href="style/stylemetricas.css">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- =========================
+         SIDEBAR (MENÚ LATERAL)
+         ========================= -->
+    <aside class="sidebar">
+
+        <!-- LOGO (ESTÁTICO) -->
+        <div class="logo">
+            <img src="img/logo.png">
+            <div>
+                <h1>BioCare</h1>
+                <p>Portal Metricas Sistema</p>
+            </div>
+        </div>
+
+        <!-- =========================
+             MENÚ PRINCIPAL (NAVEGACIÓN)
+             ========================= -->
+        <nav class="menu">
+            <a>
+                <i class="fa-solid fa-house"></i>
+                <span>Indicadores</span>
+            </a>
+
+            <a class="active">
+                <i class="fa-solid fa-user-doctor"></i>
+                <span>Personal Médico</span>
+            </a>
+        </nav>
+
+        <!-- =========================
+             USUARIO (DINÁMICO BACKEND)
+             ESTE ES EL QUE TAMBIÉN DEBE FUNCIONAR EN RESPONSIVE
+             ========================= -->
+        <div class="user">
+            <!-- Icon user -->
+            
+                <i class="fa-solid fa-user user-icon"></i>
+            
+            <div>
+                <!-- NOMBRE DINÁMICO -->
+                <p><!-- PHP: echo $usuario['nombre']; --> Cuenta Sistema</p>
+
+                <!-- ROL DINÁMICO -->
+                <span><!-- PHP: echo $usuario['rol']; --> Metricas</span>
+            </div>
+        </div>
+
+    </aside>
+
+   <main class="main">
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+    <header class="header">
+        <h2>Personal Médico</h2>
+        <p>Ingrese la información del profesional</p>
+    </header>
+
+    <!-- =========================
+         FORMULARIO HORIZONTAL
+    ========================= -->
+    <section class="card form-card">
+
+        <!-- 🔥 BACKEND:
+             action="guardar_medico.php"
+             method="POST"
+        -->
+        <form class="form-grid">
+
+            <div class="input-group">
+                <label>Nombre Completo</label>
+                <!-- 🔥 BACKEND: name="nombre" -->
+                <input type="text" placeholder="Ej. Dr. Alejandro Rivera">
+            </div>
+
+            <div class="input-group">
+                <label>Especialidad</label>
+                <!-- 🔥 BACKEND:
+                     Llenar opciones desde BD
+                -->
+                <select>
+                    <option>Seleccione una opción</option>
+                    <option>Cardiología</option>
+                    <option>Neurología</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Cédula</label>
+                <!-- 🔥 BACKEND: name="cedula" -->
+                <input type="text" placeholder="1234567-A">
+            </div>
+
+            <div class="input-group">
+                <label>Teléfono</label>
+                <!-- 🔥 BACKEND: name="telefono" -->
+                <input type="text" placeholder="+52 000 000 0000">
+            </div>
+
+            <!-- BOTONES -->
+            <div class="form-actions">
+
+                <!-- 🔥 BACKEND:
+                     Reset form o limpiar inputs
+                -->
+                <button type="button" class="btn-cancelar">
+                    Cancelar
+                </button>
+
+                <!-- 🔥 BACKEND:
+                     Enviar datos para INSERT
+                -->
+                <button type="submit" class="btn-primary">
+                    Registrar Médico
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+    <!-- =========================
+         TABLA
+    ========================= -->
+    <section class="card tabla-card">
+
+        <div class="tabla-header">
+            <h3>Personal Médico</h3>
+
+            <!-- 🔥 BACKEND:
+                 Filtro por estado / especialidad
+            -->
+        </div>
+
+        <table class="tabla">
+
+            <thead>
+                <tr>
+                    <th>Médico</th>
+                    <th>Especialidad</th>
+                    <th>Cédula</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <!-- 🔥 BACKEND:
+                     Aquí irá un foreach dinámico:
+                     foreach ($medicos as $medico)
+                -->
+
+                <!-- EJEMPLO VISUAL (SOLO DISEÑO) -->
+                <tr>
+                    <td>
+                        <div class="medico-info">
+                            <span class="avatar">RM</span>
+                            Dr. Roberto Mendoza
+                        </div>
+                    </td>
+                    <td>Cardiología</td>
+                    <td>7762110-B</td>
+                    <td><span class="estado activo">Activo</span></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="medico-info">
+                            <span class="avatar">LV</span>
+                            Dra. Lucía Valdés
+                        </div>
+                    </td>
+                    <td>Neurología</td>
+                    <td>8123992-K</td>
+                    <td><span class="estado pendiente">Pendiente</span></td>
+                </tr>
+
+                <!-- 🔥 BACKEND:
+                     Si no hay datos:
+                     Mostrar mensaje "No hay registros"
+                -->
+
+            </tbody>
+
+        </table>
+
+        <!-- =========================
+             PAGINACIÓN
+        ========================= -->
+        <div class="paginacion">
+
+            <!-- 🔥 BACKEND:
+                 Generar páginas dinámicamente:
+                 total_paginas
+                 pagina_actual
+            -->
+
+            <!-- EJEMPLO VISUAL -->
+            <button class="pagina activa">1</button>
+            <button class="pagina">2</button>
+            <button class="pagina">3</button>
+
+        </div>
+
+    </section>
+
+</main>
+
+</div>
+
+</body>
+</html>

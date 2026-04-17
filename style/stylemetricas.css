@@ -1,0 +1,651 @@
+/* =========================
+   RESET
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    background:#f6f8fb;
+    overflow:hidden;
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+.container{
+    display:flex;
+    height:100vh;
+}
+
+/* =========================
+   SIDEBAR (AHORA AZUL)
+========================= */
+.sidebar{
+    width:260px;
+    background:#2563eb; /* 🔵 CAMBIO */
+    border-right:none;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:20px;
+}
+
+/* LOGO */
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo img{
+    width:40px;
+}
+
+.logo h1{
+    font-size:18px;
+    color:#ffffff; /* 🔵 */
+}
+
+.logo p{
+    font-size:12px;
+    color:#dbeafe; /* 🔵 */
+}
+
+/* =========================
+   MENU
+========================= */
+.menu{
+    margin-top:30px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.menu a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px;
+    border-radius:10px;
+    color:#e0e7ff; /* 🔵 */
+    cursor:pointer;
+    transition:.3s;
+}
+
+.menu a i{
+    color:#e0e7ff; /* 🔵 */
+}
+
+/* ACTIVO */
+.menu a.active{
+    background:#1e40af; /* 🔵 */
+    color:#ffffff;
+}
+
+.menu a.active i{
+    color:#ffffff;
+}
+
+/* HOVER */
+.menu a:hover{
+    background:#1e3a8a; /* 🔵 */
+}
+
+/* =========================
+   USER
+========================= */
+.user{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px;
+    border-radius:12px;
+    transition:.3s;
+}
+
+/* 🔥 HOVER TOTAL (RECTANGULAR) */
+.user:hover{
+    background:#1e40af;
+    cursor:pointer;
+}
+
+/* ICONO COMO LOS DEL MENÚ */
+.user-icon{
+    font-size:18px;
+    color:#ffffff;
+
+    /* 🔥 CLAVE PARA ALINEACIÓN */
+    width:20px;
+    text-align:center;
+    line-height:1;
+}
+
+/* TEXTO */
+.user div{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.user p{
+    font-size:14px;
+    color:#ffffff;
+    margin:0;
+}
+
+.user span{
+    font-size:12px;
+    color:#dbeafe;
+    margin:0;
+}
+
+/* =========================
+   MAIN
+========================= */
+.main{
+    flex:1;
+    padding:25px;
+    overflow:auto;
+}
+
+/* HEADER */
+.header h2{
+    font-size:26px;
+    color:#1f2937;
+}
+
+.header p{
+    color:#6b7280;
+    margin-top:5px;
+}
+
+/* =========================
+   GRID
+========================= */
+.grid{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    grid-template-areas:
+        "citas horarios"
+        "historial especialidades";
+    gap:20px;
+}
+
+/* =========================
+   CARDS
+========================= */
+.card{
+    background:#ffffff;
+    border-radius:15px;
+    padding:18px;
+    border:1px solid #e5e7eb;
+}
+
+/* 🔵 ICONOS DE CARDS */
+.card-header h3 i{
+    color:#2563eb;
+}
+
+/* AREAS */
+.citas{grid-area:citas;}
+.horarios{grid-area:horarios;}
+.historial{grid-area:historial;}
+.especialidades{grid-area:especialidades;}
+
+/* =========================
+   HEADER CARD
+========================= */
+.card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.card-header h3{
+    color:#1f2937;
+    font-size:16px;
+}
+
+.card-header button{
+    background:none;
+    border:none;
+    color:#2563eb;
+    cursor:pointer;
+    font-weight:500;
+}
+
+
+/* =========================
+   CONTENEDOR GENERAL
+========================= */
+.main{
+    width: 100%;
+    max-width: 100%; /* 🔥 elimina límites */
+    padding: 30px;
+    background: #f4f6fb;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header h2{
+    font-size: 34px;
+    font-weight: 800;
+    color: #111827;
+}
+
+.header p{
+    margin-top: 8px;
+    color: #6b7280;
+    font-size: 15px;
+}
+
+/* =========================
+   GRID CARDS
+========================= */
+.resumen-cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 25px;
+    width: 100%; /* 🔥 importante */
+}
+
+/* =========================
+   CARDS BASE
+========================= */
+.card{
+    background: #fff;
+    border-radius: 20px;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+/* CONTENIDO */
+.card-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* TÍTULO */
+.titulo-card{
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+}
+
+/* NÚMERO GRANDE */
+.card h3{
+    font-size: 40px;
+    font-weight: 800;
+    color: #111827;
+}
+
+/* INDICADORES */
+.indicador{
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.indicador.positivo{
+    color: #16a34a;
+}
+
+.indicador.negativo{
+    color: #dc2626;
+}
+
+/* =========================
+   BORDES DE COLOR (EFECTO IMAGEN)
+========================= */
+.card-azul{
+    border-bottom: 4px solid #2563eb;
+}
+
+.card-verde{
+    border-bottom: 4px solid #16a34a;
+}
+
+.card-rojo{
+    border-bottom: 4px solid #dc2626;
+}
+
+/* =========================
+   EFECTO ICONO FLOTANTE (DECORATIVO)
+========================= */
+.card::after{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    right: -30px;
+    bottom: -30px;
+    background: rgba(0,0,0,0.03);
+    border-radius: 50%;
+}
+
+/* =========================
+   EXPORTACIÓN
+========================= */
+.exportacion{
+    margin-top: 35px;
+    padding: 35px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+    color: #fff;
+}
+
+/* CONTENIDO FLEX */
+.exportacion-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+/* TEXTO */
+.exportacion-texto h3{
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.exportacion-texto p{
+    margin-top: 10px;
+    font-size: 14px;
+    max-width: 500px;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* BOTÓN */
+.btn-reporte{
+    background: #fff;
+    color: #1e3a8a;
+    border: none;
+    padding: 14px 22px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+
+.btn-reporte:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px){
+
+    .header h2{
+        font-size: 26px;
+    }
+
+    .exportacion-content{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-reporte{
+        width: 100%;
+        justify-content: center;
+    }
+
+}
+
+
+
+/* Personal Médico */
+
+/* =========================
+   CONTENEDOR GENERAL
+========================= */
+.main{
+    padding: 30px 40px;
+    background: #f5f7fb;
+    min-height: 100vh;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header h2{
+    font-size: 34px;
+    font-weight: 800;
+    color: #111827;
+}
+
+.header p{
+    margin-top: 5px;
+    color: #6b7280;
+    font-size: 15px;
+}
+
+/* =========================
+   CARDS GENERALES
+========================= */
+.card{
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    margin-top: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+}
+
+/* =========================
+   FORMULARIO
+========================= */
+.form-grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    align-items: end;
+}
+
+/* INPUTS */
+.input-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label{
+    font-size: 13px;
+    color: #374151;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.input-group input,
+.input-group select{
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: #eef2f7;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+/* FOCUS */
+.input-group input:focus,
+.input-group select:focus{
+    outline: none;
+    background: #e0e7ff;
+}
+
+/* BOTONES */
+.form-actions{
+    display: flex;
+    gap: 10px;
+}
+
+.btn-primary{
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-primary:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(37,99,235,0.3);
+}
+
+.btn-cancelar{
+    background: transparent;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+}
+
+/* =========================
+   TABLA
+========================= */
+.tabla{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+/* HEADER TABLA */
+.tabla th{
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #6b7280;
+    padding: 12px;
+    background: #f9fafb;
+}
+
+/* FILAS */
+.tabla td{
+    padding: 14px 12px;
+    border-top: 1px solid #eef2f7;
+    font-size: 14px;
+    color: #374151;
+}
+
+/* HOVER */
+.tabla tbody tr:hover{
+    background: #f9fafb;
+}
+
+/* =========================
+   MÉDICO INFO
+========================= */
+.medico-info{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* AVATAR */
+.avatar{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #dbeafe;
+    color: #2563eb;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+
+/* =========================
+   ESTADOS
+========================= */
+.estado{
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ACTIVO */
+.estado.activo{
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+/* PENDIENTE */
+.estado.pendiente{
+    background: #e0e7ff;
+    color: #4f46e5;
+}
+
+/* INACTIVO (por si lo usas) */
+.estado.inactivo{
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+/* =========================
+   PAGINACIÓN
+========================= */
+.paginacion{
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.pagina{
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: #e5e7eb;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.pagina:hover{
+    background: #d1d5db;
+}
+
+/* ACTIVA */
+.pagina.activa{
+    background: #2563eb;
+    color: white;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1000px){
+
+    .form-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 600px){
+
+    .form-grid{
+        grid-template-columns: 1fr;
+    }
+
+}
